@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+
+  <assemblyIdentity name="BoltAddin" version="1.0.0.0"></assemblyIdentity>
+
+  <clrClass clsid="{bc5e9bc5-6368-41a3-8042-ec65aa1609df}" progid="BoltAddin.StandardAddInServer" threadingModel="Both" name="BoltAddin.StandardAddInServer" runtimeVersion=""></clrClass>
+
+  <file name="BoltAddin.dll" hashalg="SHA1"></file>
+
+</assembly>

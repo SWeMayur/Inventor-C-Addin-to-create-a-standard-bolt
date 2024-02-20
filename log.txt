@@ -1,0 +1,8 @@
+Timestamp: 20-02-2024 10:50:57
+Error Message: Error creating standard bolt: The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+Stack Trace: 
+--------------------------------------------------
+Timestamp: 20-02-2024 12:05:03
+Error Message: Error creating standard bolt: The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+Stack Trace: 
+--------------------------------------------------

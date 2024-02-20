@@ -1,0 +1,14 @@
+<Addin Type="Standard">
+  <!--Created for Autodesk Inventor Version 28.0-->
+  <ClassId>{bc5e9bc5-6368-41a3-8042-ec65aa1609df}</ClassId>
+  <ClientId>{bc5e9bc5-6368-41a3-8042-ec65aa1609df}</ClientId>
+  <DisplayName>BoltAddin</DisplayName>
+  <Description>BoltAddin</Description>
+  <Assembly>BoltAddin.dll</Assembly>
+  <LoadOnStartUp>1</LoadOnStartUp>
+  <UserUnloadable>1</UserUnloadable>
+  <Hidden>0</Hidden>
+  <SupportedSoftwareVersionGreaterThan>27..</SupportedSoftwareVersionGreaterThan>
+  <DataVersion>1</DataVersion>
+  <UserInterfaceVersion>1</UserInterfaceVersion>
+</Addin>
