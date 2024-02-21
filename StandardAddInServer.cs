@@ -84,12 +84,18 @@ namespace BoltAddin
             try
             {
                 IBoltFactory boltFactory = new StandardBoltFactory();
-                BoltParametersForm boltParametersForm = new BoltParametersForm();
-                if (boltParametersForm.ShowDialog() == DialogResult.OK)
+                BoltParametersWindow boltParametersWindow = new BoltParametersWindow();
+                if((bool)boltParametersWindow.ShowDialog())
                 {
-                    IBolt bolt = boltFactory.CreateBolt(boltParametersForm.BoltDiameter, boltParametersForm.BoltLength, boltParametersForm.BoltThreadDepth, boltParametersForm.BoltThreadPitch);
+                    IBolt bolt = boltFactory.CreateBolt(boltParametersWindow.BoltDiameter, boltParametersWindow.BoltLength, boltParametersWindow.BoltThreadDepth, boltParametersWindow.BoltThreadPitch);
                     bolt.Create(m_inventorApplication);
                 }
+                //BoltParametersForm boltParametersForm = new BoltParametersForm();
+                //if (boltParametersForm.ShowDialog() == DialogResult.OK)
+                //{
+                //    IBolt bolt = boltFactory.CreateBolt(boltParametersForm.BoltDiameter, boltParametersForm.BoltLength, boltParametersForm.BoltThreadDepth, boltParametersForm.BoltThreadPitch);
+                //    bolt.Create(m_inventorApplication);
+                //}
             }
             catch (Exception ex)
             {
