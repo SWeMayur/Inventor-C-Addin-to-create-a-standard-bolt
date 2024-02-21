@@ -63,6 +63,10 @@ namespace InvAddIn
 
                 //Create a thread feature for bolt
                 ThreadFeature threadFeature = CreateThreadFeaturs(compDef, extrude3);
+
+              //SetIsometricView(m_inventorApplication);
+
+               
                 // Update the document
                 UpdateAndSavePart(partDoc);
 

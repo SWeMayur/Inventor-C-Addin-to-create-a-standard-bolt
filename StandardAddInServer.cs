@@ -2,6 +2,7 @@ using InvAddIn;
 using Inventor;
 using System;
 using System.Drawing;
+using System.Resources;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -41,10 +42,10 @@ namespace BoltAddin
 
         private void AddButton()
         {
-            string filename = @"D:\Mayur_Workspace\Incubation\BoltAddin\boltIcon2.ico";
+            string filename = @"../../Resources/boltIcon2.ico";
             string directory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string fullPath = System.IO.Path.Combine(directory, filename);
-            Icon commandIcon = new Icon(fullPath);
+            Icon commandIcon = new Icon(filename);
             Icon smallCommandIcon = new Icon(commandIcon, 16, 16);
             Icon largeCommandIcon = new Icon(commandIcon, 32, 32);
             stdole.IPictureDisp smallic = PictureDispConverter.ToIPictureDisp(smallCommandIcon);
