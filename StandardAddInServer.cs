@@ -26,13 +26,18 @@ namespace BoltAddin
 
         #region ApplicationAddInServer Members
 
+        /// <summary>
+        /// Called when the add-in is activated.
+        /// </summary>
         public void Activate(Inventor.ApplicationAddInSite addInSiteObject, bool firstTime)
         {
             // Initialize AddIn members.
             m_inventorApplication = addInSiteObject.Application;
             AddButton();
         }
-
+        /// <summary>
+        /// Called when the add-in is deactivated.
+        /// </summary>
         public void Deactivate()
         {
             m_inventorApplication = null;
@@ -40,6 +45,9 @@ namespace BoltAddin
             GC.WaitForPendingFinalizers();
         }
 
+        /// <summary>
+        /// Adds a custom button to the Inventor UI.
+        /// </summary>
         private void AddButton()
         {
             string filename = @"../../Resources/boltIcon2.ico";
@@ -78,7 +86,10 @@ namespace BoltAddin
             m_helloWorldButton.OnExecute += CreateBoltButton_OnExecute;
         }
 
-
+        /// <summary>
+        /// Event handler for the "Create Bolt" button click.
+        /// Opens a form for entering bolt parameters and creates a bolt based on the input.
+        /// </summary>
         //Bolt code:
         private void CreateBoltButton_OnExecute(NameValueMap Context)
         {
@@ -104,8 +115,14 @@ namespace BoltAddin
             }
         }
 
+        /// <summary>
+        /// Executes a command with the given ID.
+        /// </summary>
         public void ExecuteCommand(int commandID){}
 
+        /// <summary>
+        /// Gets the Automation object associated with this add-in.
+        /// </summary>
         public object Automation
         {
             get

@@ -5,7 +5,12 @@ namespace InvAddIn
 {
     internal class LogRecorder
     {
+        
         private const string LogFilePath = @"D:\Mayur_Workspace\Incubation\BoltAddin\log.txt";
+        /// <summary>
+        /// Logs an exception, including timestamp, error message, and stack trace.
+        /// </summary>
+        /// <param name="ex">The exception to be logged.</param>
         public static void LogException(Exception ex)
         {
             try

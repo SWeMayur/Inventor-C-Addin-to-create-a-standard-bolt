@@ -3,6 +3,9 @@ using System;
 
 namespace InvAddIn
 {
+    /// <summary>
+    /// Represents a standard bolt implementation that implements the IBolt interface.
+    /// </summary>
     internal class StandardBolt : IBolt
     {
         private double Diameter { get; }
@@ -10,6 +13,13 @@ namespace InvAddIn
         private double ThreadDepth { get; }
         private double ThreadPitch { get; }
 
+        / /// <summary>
+        /// Initializes a new instance of the StandardBolt class with specified parameters.
+        /// </summary>
+        /// <param name="diameter">The diameter of the bolt.</param>
+        /// <param name="length">The length of the bolt.</param>
+        /// <param name="threadDepth">The thread depth of the bolt.</param>
+        /// <param name="threadPitch">The thread pitch of the bolt.</param>
         public StandardBolt(double diameter, double length, double threadDepth, double threadPitch)
         {
             Diameter = diameter;
@@ -18,6 +28,9 @@ namespace InvAddIn
             ThreadPitch = threadPitch;
         }
 
+        /// <summary>
+        /// Creates a standard bolt in the specified Inventor application.
+        /// </summary>
         public void Create(Application m_inventorApplication)
         {
             try
@@ -77,6 +90,9 @@ namespace InvAddIn
             }
         }
 
+        /// <summary>
+        /// Creates a new PartDocument in the specified Inventor application.
+        /// </summary>
         private PartDocument CreatePartDoc(Application inventorApplication)
         {
             return  inventorApplication.Documents.Add(
@@ -84,26 +100,42 @@ namespace InvAddIn
                     inventorApplication.FileManager.GetTemplateFile(DocumentTypeEnum.kPartDocumentObject)) as PartDocument;
         }
 
+        /// <summary>
+        /// Creates a PartComponentDefinition for the given PartDocument.
+        /// </summary>
         private PartComponentDefinition CreatePartComponent(PartDocument partDoc)
         {
             return partDoc.ComponentDefinition;
         }
 
+        /// <summary>
+        /// Creates a PlanarSketch on the specified work plane index within a PartComponentDefinition.
+        /// </summary>
         private PlanarSketch CreatePlanerSketch(PartComponentDefinition compDef, int workPlaneIndex)
         {
             return compDef.Sketches.Add(compDef.WorkPlanes[workPlaneIndex]);
         }
 
+        /// <summary>
+        /// Creates a Point2d in the specified Inventor application with the given coordinates.
+        /// </summary>
         private Point2d CreatePoint2D(Application inventorApplication, double xCoord, double yCoord)
         {
             return inventorApplication.TransientGeometry.CreatePoint2d(xCoord, yCoord);
         }
 
+        /// <summary>
+        /// Creates a Profile for solid geometry within a PlanarSketch.
+        /// </summary>
         private Profile CreateProfileForSolid(PlanarSketch sketch)
         {
             return sketch.Profiles.AddForSolid();
         }
 
+
+        /// <summary>
+        /// Creates a ThreadFeature for the bolt based on a specified ExtrudeFeature.
+        /// </summary>
         private ThreadFeature CreateThreadFeaturs(PartComponentDefinition compDef,ExtrudeFeature extrudeFeature)
         {
             ThreadFeatures tf = compDef.Features.ThreadFeatures;
@@ -114,16 +146,26 @@ namespace InvAddIn
             return tf.Add(face, edge, tfInfo, false, false, ThreadDepth, 0);
         }
 
+        /// <summary>
+        /// Creates a Face for thread features based on a specified ExtrudeFeature and face index.
+        /// </summary>
         private Face CreateFace(ExtrudeFeature extrudeFeature, int faceIndex)
         {
             return extrudeFeature.SideFaces[faceIndex];
         }
 
+        /// <summary>
+        /// Creates an Edge for thread features based on a specified ExtrudeFeature, face index, and edge index.
+        /// </summary>
         private Edge CreateEdge(ExtrudeFeature extrudeFeature, int faceIndex, int edgeIndex)
         {
             return extrudeFeature.EndFaces[faceIndex].Edges[edgeIndex];
         }
 
+
+        /// <summary>
+        /// Creates an ExtrudeFeature based on a specified PartComponentDefinition, Profile, operation, distance, direction, and optional taper angle.
+        /// </summary>
         private ExtrudeFeature CreateExtrudeDefinition(PartComponentDefinition compDef, Profile profile, PartFeatureOperationEnum operation, double distance, PartFeatureExtentDirectionEnum
             direction, double taperAngle = 0.0D)
         {
@@ -133,6 +175,9 @@ namespace InvAddIn
             return compDef.Features.ExtrudeFeatures.Add(extrudeDef);
         }
 
+        /// <summary>
+        /// Updates and saves the PartDocument.
+        /// </summary>
         private void UpdateAndSavePart(PartDocument partDoc)
         {
             partDoc.Update();

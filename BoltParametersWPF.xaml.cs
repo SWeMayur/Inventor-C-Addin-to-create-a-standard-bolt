@@ -24,7 +24,9 @@ namespace InvAddIn
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Initializes the components
+        /// </summary>
         private void InitializeComponent()
         {
             throw new NotImplementedException();

@@ -7,9 +7,21 @@ namespace InvAddIn
 {
     internal class BoltParametersForm : Form
     {
+        /// <summary>
+        /// Gets or sets the bolt diameter.
+        /// </summary>
         public double BoltDiameter { get; set; }
+        /// <summary>
+        /// Gets or sets the bolt length.
+        /// </summary>
         public double BoltLength { get; set; }
+        /// <summary>
+        /// Gets or sets the bolt thread depth.
+        /// </summary>
         public double BoltThreadDepth { get; set; }
+        /// <summary>
+        /// Gets or sets the bolt thread pitch.
+        /// </summary>
         public double BoltThreadPitch { get; set; }
 
         private Label lblDiameter;
@@ -24,6 +36,9 @@ namespace InvAddIn
 
         private Button btnOk;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BoltParametersForm"/> class.
+        /// </summary>
         public BoltParametersForm()
         {
             InitializeComponents();
@@ -83,6 +98,11 @@ namespace InvAddIn
             ClientSize = new Size(250, 170);
             Text = "Enter Dimensions";
         }
+        /// <summary>
+        /// Event handler for the "OK" button click.
+        /// Attempts to parse the input values, sets bolt parameters if successful, and sets the dialog result.
+        /// Displays a message box for invalid input.
+        /// </summary>
         private void BtnOk_Click(object sender, EventArgs e)
         {
             if (double.TryParse(txtDiameter.Text, out double boltDiameter) &&
