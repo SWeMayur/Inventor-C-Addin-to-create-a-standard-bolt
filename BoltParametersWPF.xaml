@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Window x:Class="InvAddIn.BoltParametersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -16,3 +17,23 @@
         <Button Content="OK" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,138,108,0" Click="BtnOk_Click" RenderTransformOrigin="3.282,1.459" Height="22" Width="51"/>
     </Grid>
 </Window>
+=======
+﻿<Window x:Class="InvAddIn.BoltParametersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Enter Dimensions" Height="200" Width="300">
+    <Grid>
+        <Label Content="Bolt Diameter:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+        <Label Content="Bolt Length:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,40,0,0"/>
+        <Label Content="Thread Depth:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,70,0,0"/>
+        <Label Content="Thread Pitch:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,100,0,0"/>
+
+        <TextBox x:Name="txtDiameter" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,10,0,0" Width="93"/>
+        <TextBox x:Name="txtLength" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,40,0,0" Width="93"/>
+        <TextBox x:Name="txtThreadDepth" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,70,0,0" Width="93"/>
+        <TextBox x:Name="txtThreadPitch" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,100,0,0" Width="93"/>
+
+        <Button Content="OK" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,138,108,0" Click="BtnOk_Click" RenderTransformOrigin="3.282,1.459" Height="22" Width="51"/>
+    </Grid>
+</Window>
+>>>>>>> b375f5686de37a0302cb23ef3d441de34fae9351
